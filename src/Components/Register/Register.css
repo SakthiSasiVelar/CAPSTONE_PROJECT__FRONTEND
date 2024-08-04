@@ -1,0 +1,88 @@
+.register-outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 1rem 10rem 1rem;
+}
+
+.register-container {
+    background-color: rgb(252, 243, 236);
+    padding: 2.3rem 1.8rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.register-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.email-container,
+.password-container,
+.name-container,
+.confirm-password-container,
+.register-btn {
+    width: 300px;
+}
+
+.password-container ,
+.confirm-password-container{
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 13px;
+    color: grey;
+    cursor: pointer;
+}
+
+.email-container>input,
+.password-container>input,
+.name-container>input ,
+.confirm-password-container>input{
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid grey;
+    outline: none;
+}
+
+.login-link {
+    color: rgb(87, 149, 219);
+    text-decoration: none;
+}
+
+.register-btn {
+    padding: 0.8rem;
+    background-color: #007BFF;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.error-container {
+    color: red;
+}
+
+@media (max-width:767px) {
+
+    .email-container,
+    .password-container,
+    .name-container,
+    .confirm-password-container,
+    .register-btn {
+        width: 250px;
+    }
+
+    .register-container {
+        padding: 1.5rem 1rem;
+    }
+}

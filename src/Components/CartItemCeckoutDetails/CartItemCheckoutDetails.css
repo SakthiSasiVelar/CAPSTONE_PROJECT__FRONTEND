@@ -1,0 +1,98 @@
+.checkout-detail-container{
+    background-color: white;
+    padding: 2rem;
+}
+
+.checkout-detail-inner-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-details-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.7rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.chekout-detail-hr-line{
+    width: 100%;
+        background-color: rgb(212, 212, 212);
+        height: 3px;
+        border: none;
+        border-radius: 4px;
+}
+
+.discount{
+    color: lightgreen
+}
+.total{
+    color: red;
+}
+
+.checkout-coupon-container{
+    padding: 1rem;
+    background-color: rgb(207, 16, 45);
+}
+
+.coupon-message{
+    margin-bottom: 0.8rem;
+}
+
+.return-detail{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.coupon-info{
+    font-size: 1rem;
+    color: white;
+}
+
+.coupon-apply-inp-field{
+    width: 100%;
+    background-color : white;
+    box-shadow: inset 0 3px 0 0 #d5d5d5;
+    border-radius: 73px;
+    height:60px;
+    border: 1px solid #d5d5d5;
+    padding-left: 2rem;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.coupoun-apply-container{
+    position: relative;
+    margin-top:2rem
+}
+
+.couply-apply-btn{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 2px 3px 0 0 #000;
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        text-align: center;
+}
+
+.checkout-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 2px solid #cf102d;
+    border-radius: 36px;
+    box-shadow: 2px 3px 0 0 #cf102d;
+    color: #000;
+    font-size: 20px;
+    background-color: #fff;
+    cursor: pointer;
+}

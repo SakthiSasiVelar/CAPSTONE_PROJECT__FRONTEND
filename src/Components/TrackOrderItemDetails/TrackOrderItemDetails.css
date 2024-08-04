@@ -1,0 +1,81 @@
+.track-order-item-details-container{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.track-order-item-details-card{
+    width: 100%;
+    border-color: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    column-gap: 2rem;
+}
+
+.track-order-status-card{
+    width: 100%;
+    border-color: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    padding: 2rem;
+    column-gap: 3rem;
+}
+
+
+.track-order-item-details-item-info-container{
+    display: flex;
+    column-gap: 3rem;
+    align-items: center;
+    padding: 2rem 2rem;
+    width:50%;
+}
+
+.track-order-item-details-item-info-img-container{
+    width:180px;
+    height: 180px;
+}
+
+.track-order-item-details-item-info-img-container > img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.track-order-item-details-item-info-name-qty-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.divider{
+    height:245px
+    
+}
+
+.track-order-item-details-delivery-address-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 2rem 2rem 2rem 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.track-order-item-hight-detail{
+    font-weight: 500;
+}
+.quantity-track-order-item{
+    color: grey;
+}
+
+.price-font{
+    font-size: 1.2rem;
+}
+
+.custom-steps{
+    margin-top: 2rem;
+}

@@ -1,0 +1,23 @@
+.banner-container{
+    width:100%;
+    background-color: rgb(172, 33, 40);
+    padding: 1rem 3rem;
+    height:600px;
+    overflow: hidden;
+}
+
+.banner{
+    height:550px;
+    width: 100%;
+}
+
+@media (max-width:800px) {
+    .banner-container{
+        height:200px;
+        padding:1rem;
+    }
+
+    .banner{
+        height:150px;
+    }
+}

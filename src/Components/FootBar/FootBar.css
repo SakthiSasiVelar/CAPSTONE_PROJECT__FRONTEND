@@ -1,0 +1,34 @@
+.footer-bar {
+    display: none;
+  
+}
+
+.footer-item {
+    text-align: center;
+    text-decoration: none;
+    text-decoration: none;
+    color: rgb(146,146,146);
+}
+
+.footer-item div {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .footer-bar {
+        display: flex;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        color:rgb(146,146,146);
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+        
+    }
+}

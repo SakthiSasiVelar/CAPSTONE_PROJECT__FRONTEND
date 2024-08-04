@@ -1,0 +1,59 @@
+.filter-container{
+    width: 25%;
+    padding: 2rem;
+    height:100%;
+}
+
+.filter-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.filter-title{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.clear-filter-btn{
+    cursor: pointer;
+    color: red;
+}
+
+.filter-divider{
+    height: 5px;
+    background-color: rgb(241, 196, 159);
+    border:0;
+}
+
+.filter-label-btn-container{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plus-btn{
+    cursor: pointer;
+}
+
+.filter-values-container{
+    margin: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    row-gap: 0.5rem;
+}
+
+.filter-value-label-checkbox-container{
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+.filter-checkbox{
+    width:15px;
+}

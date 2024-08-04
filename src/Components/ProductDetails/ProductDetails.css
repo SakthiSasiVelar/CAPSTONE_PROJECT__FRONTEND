@@ -1,0 +1,113 @@
+.brand-name-label{
+    font-weight: 500;
+}
+
+.toy-name-label{
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.age-category-outer-container{
+    display: flex;
+    column-gap: 0.7rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.avg-review-container{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.price-container{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    margin-top:1rem
+}
+
+.original-price{
+   color: grey;
+   font-size: 1.3rem;
+   font-weight: 600;
+}
+
+.discounted-price{
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.discount-percent{
+    color: green;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.description-container{
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top:1rem
+}
+.in-stock-container{
+    width: 100px;
+    background-color: rgb(13, 182, 13);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.out-stock-container{
+    width: 130px;
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.in-stock-outer-container{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stock-remaining-container{
+    color: red;
+}
+
+.bag-button-container{
+    margin-top:2rem;
+    display: flex;
+    align-items: center;    
+    column-gap: 1rem;
+}
+
+.add-to-cart-button , .buy-now-button{
+    background-color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    border: 2px solid red;
+    outline: none;
+    cursor:pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    justify-content: center;  
+}
+
+.product-details-outer-container{
+    position: sticky;
+    top:140px;
+}

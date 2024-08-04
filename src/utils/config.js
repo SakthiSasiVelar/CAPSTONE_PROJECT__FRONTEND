@@ -1,0 +1,1 @@
+export const API_BASE_URL = 'https://sakthikptoystoremanagementbackend-abcce6hgeufzccax.eastus-01.azurewebsites.net/api/' 

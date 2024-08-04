@@ -1,0 +1,84 @@
+
+.display-toys-list-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.display-toy-list-container{
+    padding:2rem 2rem 2rem 1rem;
+    width: 75%;
+}
+
+.total-product-label-container{
+    width: 100%;
+    background-color: rgb(207, 16, 45);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    margin:1rem 0;
+    color: white;
+}
+
+.total-product-value{
+    color: white;
+}
+
+.toy-list-items-outer-conatiner{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+}
+
+.toy-list-item-container{
+    width:340px;
+    height:500px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-bag-container{
+   box-shadow: 0 4px 8px rgba(243, 208, 179, 0.5),
+    0 6px 20px rgba(243, 208, 179, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.toy-image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.add-to-bag-container{
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+}
+
+.add-to-bag-container > div{
+    display: flex;
+    align-items:center ;
+    column-gap: 8px;
+    cursor: pointer;
+}
+
+.toy-name{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toy-price-container{
+    display: flex;
+    align-items: center;
+    column-gap:0.5rem;
+}
+
+.link-tag{
+    text-decoration: none;
+}

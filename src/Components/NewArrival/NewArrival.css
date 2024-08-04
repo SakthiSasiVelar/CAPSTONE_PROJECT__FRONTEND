@@ -1,0 +1,11 @@
+.new-arrival-container{
+    padding: 1rem 4rem 2rem 4rem;
+    background-color: rgb(172, 33, 40);
+}
+
+.new-arrival-title{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}

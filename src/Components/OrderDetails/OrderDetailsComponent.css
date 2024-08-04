@@ -1,0 +1,88 @@
+.order-details-container{
+    padding:3rem 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.order-details-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.order-detail-label-input-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.order-detail-input-type{
+    height: 62px;
+    width: 100%;
+    padding-left: 30px;
+    border: 1px solid #d5d5d5;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: inset 0 3px 0 0 #d5d5d5;
+    font-size: 1rem;
+    outline: none;
+}
+
+.no-spinner {
+    -moz-appearance: textfield;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-spinner {
+    appearance: none;
+}
+
+.mobile-number-pincode-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.order-detail-contact-number{
+    width:350px
+}
+
+.custom-radio{
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem
+}
+
+.order-detail-button{
+    padding: 15px 40px;
+    border: 2px solid #cf102d;
+    border-radius: 36px;
+    box-shadow: 2px 3px 0 0 #cf102d;
+    color: #000;
+    font-size: 20px;
+    margin-top: 30px;
+    background-color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:400px
+}
+
+.order-detail-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-container {
+    color: red;
+}

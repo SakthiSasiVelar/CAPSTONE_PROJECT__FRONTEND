@@ -1,0 +1,69 @@
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.content-loader{
+    flex:1
+}
+
+.shimmer-container>svg {
+    width: 240px;
+    height: 280px;
+    padding-top: 2rem;
+}
+
+.body-content-shimmer-container {
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+    overflow: hidden;
+}
+.sidebar-shimmer-container {
+    width: 25%;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-banner-shimmer-container {
+    width: 100vw;
+    height: 300px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.cart-image-shimmer-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 2rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+}
+
+.full-page-shimmer-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #ffffff;
+}
+
+.body-content-track-item-shimmer-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    /* Add gap between shimmer rows */
+}
+
+.track-order-item-details-card-shimmer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+}

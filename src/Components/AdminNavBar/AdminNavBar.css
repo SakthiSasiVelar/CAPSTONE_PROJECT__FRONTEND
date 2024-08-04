@@ -1,0 +1,28 @@
+
+.sidebar-header {
+    height: 64px;
+    margin: 16px;
+    background: rgb(172, 33, 40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.site-layout-header {
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
