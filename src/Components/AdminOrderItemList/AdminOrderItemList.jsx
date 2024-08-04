@@ -13,37 +13,35 @@ const AdminOrderItemList = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [updateVisible, setUpdateVisible] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState(null);
-    const [toyDetailList , setToyDetailList] = useState(null);
+    const [toyDetailList, setToyDetailList] = useState(null);
     const [filteredOrderItems, setFilteredOrderItems] = useState(null);
     const [filterStatus, setFilterStatus] = useState(null);
-    const token = sessionStorage.getItem('token')
+    const token = sessionStorage.getItem('token');
     let newOrderItemList;
-
 
     async function callFetchOrderItemsApi() {
         try {
-            const response = await fetch(API_BASE_URL + 'orderItem/getAll',{
+            const response = await fetch(API_BASE_URL + 'orderItem/getAll', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
 
-             if(!response.ok){
+            if (!response.ok) {
                 const errorCode = response.status;
-                switch(errorCode){
+                switch (errorCode) {
                     case 401:
-                      return formatErrorMessage(401 , 'Unauthorized');
+                        return formatErrorMessage(401, 'Unauthorized');
                     case 403:
-                       return formatErrorMessage(403 , 'Forbidden');
-
+                        return formatErrorMessage(403, 'Forbidden');
                 }
             }
             const result = await response.json();
 
             if (result.status === 'success') {
                 setOrderItems(result.data);
-                setFilteredOrderItems(result.data); 
+                setFilteredOrderItems(result.data);
                 return formatSuccessMessage(200, 'Order items fetched successfully', result.data);
             } else {
                 const errorCode = result.statusCode;
@@ -61,10 +59,9 @@ const AdminOrderItemList = () => {
         }
     }
 
-    async function callFetchToyDetailsApi(toyIdList){
-        try
-       {
-            const response = await fetch(API_BASE_URL +'toy/getList' , {
+    async function callFetchToyDetailsApi(toyIdList) {
+        try {
+            const response = await fetch(API_BASE_URL + 'toy/getList', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -72,112 +69,105 @@ const AdminOrderItemList = () => {
                 body: JSON.stringify(toyIdList)
             });
 
-            if(!response.ok){
+            if (!response.ok) {
                 const errorCode = response.status;
-                switch(errorCode){
+                switch (errorCode) {
                     case 401:
-                    return formatErrorMessage(401 , 'Unauthorized');
+                        return formatErrorMessage(401, 'Unauthorized');
                 }
             }
             const result = await response.json();
-        
-            if(result.status === 'success'){
-                return formatSuccessMessage(201 , 'Toy List Details fetched successfully' , result.data);
-            }
-            else if(result.status === 'error'){
+
+            if (result.status === 'success') {
+                return formatSuccessMessage(201, 'Toy List Details fetched successfully', result.data);
+            } else if (result.status === 'error') {
                 const errorCode = result.statusCode;
-                switch(errorCode){
+                switch (errorCode) {
                     case 400:
-                        return formatErrorMessage(400 ,'Please check the input and try again');                  
+                        return formatErrorMessage(400, 'Please check the input and try again');
                     case 500:
-                        return formatErrorMessage(500 , 'Failed to fetch toy list details.Please try again');
+                        return formatErrorMessage(500, 'Failed to fetch toy list details. Please try again');
                     default:
-                        return formatErrorMessage(errorCode ,result.message);
+                        return formatErrorMessage(errorCode, result.message);
                 }
             }
-        }
-        catch(error){
+        } catch (error) {
             return error;
         }
     }
 
-    function getToyIdList(orderItemsList){
-        if(orderItemsList.length > 0){
+    function getToyIdList(orderItemsList) {
+        if (orderItemsList.length > 0) {
             return [...new Set(orderItemsList.map((item) => item.toyId))];
-        }
-        else{
+        } else {
             return [];
         }
     }
 
     useEffect(() => {
-        async function fetchToyDetails(toyIdList){
+        async function fetchToyDetails(toyIdList) {
             let newToyIdDetails = {
-                toyIdList : toyIdList
+                toyIdList: toyIdList
             }
-            try{
+            try {
                 const result = await callFetchToyDetailsApi(newToyIdDetails);
-                if(result.status === 'success'){
+                if (result.status === 'success') {
                     setToyDetailList(result.data);
-                }
-                else{
+                } else {
                     console.log(result);
                     toast.error('Please refresh the page')
                 }
-            }
-            catch(error){
+            } catch (error) {
                 console.log(error);
                 toast.error('Please try again')
             }
         }
 
         async function fetchOrderItems() {
-            try{
+            try {
                 const result = await callFetchOrderItemsApi();
-                if(result.status === 'success'){
+                if (result.status === 'success') {
                     setOrderItems(result.data);
                     setFilteredOrderItems(result.data);
                     let toyIdList = getToyIdList(result.data);
-                    if(toyIdList.length > 0){
-                       await fetchToyDetails(toyIdList);
+                    if (toyIdList.length > 0) {
+                        await fetchToyDetails(toyIdList);
                     }
-                }
-                else{
-                     if(result.errorCode === 401 || result.errorCode === 403){
-                        toast.error('Please login as admin to get order items' );
+                } else {
+                    if (result.errorCode === 401 || result.errorCode === 403) {
+                        toast.error('Please login as admin to get order items');
                         return;
                     }
                     toast.error('Failed to fetch order items')
                 }
-            }
-            catch(error){
+            } catch (error) {
                 console.log(error);
                 toast.error('Please try again')
             }
         }
 
-         fetchOrderItems();
+        fetchOrderItems();
 
     }, []);
 
-    function getToyNameById(id){
-        if(toyDetailList && toyDetailList.length > 0){
+    function getToyNameById(id) {
+        if (toyDetailList && toyDetailList.length > 0) {
             let toyDetail = toyDetailList.find((toy) => toy.toyId === id);
-            if(toyDetail){
+            if (toyDetail) {
                 return toyDetail.name;
             }
         }
         return '';
     }
 
-    if(filteredOrderItems !== null && toyDetailList !== null){
-       newOrderItemList = filteredOrderItems.map((orderItem) =>{
+    if (orderItems !== null && toyDetailList !== null) {
+        newOrderItemList = filteredOrderItems.map((orderItem) => {
             return {
-                orderItemId : orderItem.orderItemId,
-                name : getToyNameById(orderItem.toyId),
-                price : orderItem.price,
-                quantity : orderItem.quantity,
-                status : orderItem.orderItemStatus,
+                orderItemId: orderItem.orderItemId,
+                name: getToyNameById(orderItem.toyId),
+                price: orderItem.price,
+                quantity: orderItem.quantity,
+                status: orderItem.orderItemStatus,
             }
         });
     }
@@ -212,7 +202,8 @@ const AdminOrderItemList = () => {
         <Menu
             onClick={(e) => {
                 setFilterStatus(e.key);
-                setFilteredOrderItems(orderItems.filter(item => item.orderItemStatus === e.key));
+                const filteredItems = orderItems.filter(item => item.orderItemStatus === e.key);
+                setFilteredOrderItems(filteredItems);
             }}
         >
             <Menu.Item key="Confirmed">Confirmed</Menu.Item>
@@ -233,14 +224,13 @@ const AdminOrderItemList = () => {
                 body: JSON.stringify(orderDetails)
             });
 
-            if(!response.ok){
+            if (!response.ok) {
                 const errorCode = response.status;
-                switch(errorCode){
+                switch (errorCode) {
                     case 401:
-                      return formatErrorMessage(401 , 'Unauthorized');
+                        return formatErrorMessage(401, 'Unauthorized');
                     case 403:
-                       return formatErrorMessage(403 , 'Forbidden');
-
+                        return formatErrorMessage(403, 'Forbidden');
                 }
             }
             const result = await response.json();
@@ -265,25 +255,27 @@ const AdminOrderItemList = () => {
 
     async function updateOrderStatus(orderDetails) {
         let newOrderDetails = {
-            orderItemStatus : orderDetails.status,
-            orderItemId : orderDetails.orderItemId,
+            orderItemStatus: orderDetails.status,
+            orderItemId: orderDetails.orderItemId,
         }
         try {
             const result = await updateOrderStatusApi(newOrderDetails);
             if (result.status === 'success') {
                 setOrderItems((prev) => {
-                    return prev.map(item =>
-                        item.orderItemId === result.data.orderItemId ? result.data : item
+                    const updatedOrderItems = prev.map(item =>
+                        item.orderItemId === result.data.orderItemId ? { ...item, ...result.data } : item
                     );
+                    setFilteredOrderItems(updatedOrderItems.filter(item => filterStatus ? item.orderItemStatus === filterStatus : true));
+                    return updatedOrderItems;
                 });
                 setIsLoading(false);
                 toast.success('Order Item status updated successfully');
             } else {
-                 if(result.errorCode === 401 || result.errorCode === 403){
-                        toast.error('Please login as admin to update order status' );
-                        setIsLoading(false)
-                        return
-                    }
+                if (result.errorCode === 401 || result.errorCode === 403) {
+                    toast.error('Please login as admin to update order status');
+                    setIsLoading(false)
+                    return
+                }
                 toast.error('Failed to update order status');
                 setIsLoading(false);
             }
@@ -301,7 +293,7 @@ const AdminOrderItemList = () => {
         setSelectedOrder(null);
     };
 
-    if(orderItems === null || toyDetailList === null) return null;
+    if (orderItems === null || toyDetailList === null) return null;
 
     return (
         <div>

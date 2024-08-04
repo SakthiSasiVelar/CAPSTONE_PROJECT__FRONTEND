@@ -197,7 +197,7 @@ const TrackOrderItem = () =>{
             }
         }
 
-        if(orderItemId !== null){
+        if(orderItemId !== null ){
             getOrderItemDetails();
         }
 
