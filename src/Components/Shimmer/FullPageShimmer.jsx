@@ -7,7 +7,7 @@ const FullPageShimmer = () => {
     const lineHeight = 20;
     const lineGap = 20; // Increased gap between lines
     const columnGap = 40; // Gap between left and right columns
-    const totalLines = 15;
+    const totalLines = 30;
     const totalHeight = headerHeight + (lineHeight + lineGap) * totalLines;
     const columnWidth = (window.innerWidth - columnGap) / 2;
 

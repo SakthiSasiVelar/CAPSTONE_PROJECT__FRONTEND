@@ -12,6 +12,7 @@ import { setBrandItemValues } from '../../Slices/brandSlice';
 import { setCategoryListValues } from '../../Slices/categorySlice';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from '../Spinner/LoadingSpinner';
+import ShimmerTable from '../Shimmer/ShimmerTable';
 
 
 
@@ -440,7 +441,11 @@ const AdminToyPanel = () => {
         setSelectedToy(null);
     };
 
-     if(toyList === null || categoryList === null || brandList == null)return null;
+     if(toyList === null || categoryList === null || brandList == null){
+        return (
+            <ShimmerTable />
+        )
+     }
 
 
     return (

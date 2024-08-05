@@ -96,7 +96,6 @@ const Cart = () => {
             </div>
             <div>
                 <DescriptionShimmer />
-                <DescriptionShimmer />
             </div>
         </div>
     )

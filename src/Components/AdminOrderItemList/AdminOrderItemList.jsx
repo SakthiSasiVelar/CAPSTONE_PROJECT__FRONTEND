@@ -7,6 +7,7 @@ import { formatErrorMessage, formatSuccessMessage } from '../../utils/responseFo
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from '../Spinner/LoadingSpinner';
 import UpdateOrderForm from '../UpdateOrderForm/UpdateOrderForm';
+import ShimmerTable from '../Shimmer/ShimmerTable';
 
 const AdminOrderItemList = () => {
     const [orderItems, setOrderItems] = useState(null);
@@ -293,7 +294,7 @@ const AdminOrderItemList = () => {
         setSelectedOrder(null);
     };
 
-    if (orderItems === null || toyDetailList === null) return null;
+    if (orderItems === null || toyDetailList === null) return <ShimmerTable />
 
     return (
         <div>

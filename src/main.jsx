@@ -22,6 +22,7 @@ import CartShimmer from './Components/Shimmer/CartShimmer.jsx'
 import CategoryShimmer from './Components/Shimmer/CategoryShimmer.jsx'
 import CheckoutShimmer from './Components/Shimmer/CheckoutShimmer.jsx'
 import ProductDetailShimmer from './Components/Shimmer/ProductDetailShimmer.jsx'
+import ShimmerTable from './Components/Shimmer/ShimmerTable.jsx'
 
 
 const TrackOrder = lazy(() => import("./Pages/TrackOrder.jsx"));
@@ -160,7 +161,7 @@ const appConfig = createBrowserRouter([
   {
     path : '/adminHome',
      element:(
-          <Suspense >
+          <Suspense fallback={<ShimmerTable />}>
             <AdminHome />
           </Suspense>
         ),

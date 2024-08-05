@@ -160,7 +160,7 @@ const ProductDetails = (props) =>{
                 <div>{categoryName}</div>
             </div>
             <div className='avg-review-container'>
-                <Rate allowHalf defaultValue={avgRatings} disabled/>
+                <Rate allowHalf value={avgRatings} disabled/>
                 <span >({reviewList.length} {reviewList.length <= 1 ? 'review' : 'reviews'})</span>
             </div>
             <div className='description-container'>

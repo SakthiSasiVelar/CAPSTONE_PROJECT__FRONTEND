@@ -7,7 +7,7 @@ const CartImageShimmer = () => {
         <div className='cart-image-shimmer-container'>
             <ContentLoader
                 speed={2}
-                width={600} 
+                width={900} 
                 height={400 * 5}
                 viewBox="0 0 600 2000"
                 backgroundColor="#e0e0e0"
