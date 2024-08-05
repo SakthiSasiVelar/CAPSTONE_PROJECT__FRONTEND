@@ -37,3 +37,7 @@
     height: 100px;
     padding: 1rem;
 }
+
+.error-container{
+    color: red;
+}
