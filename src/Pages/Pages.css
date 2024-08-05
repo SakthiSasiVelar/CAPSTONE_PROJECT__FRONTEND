@@ -54,7 +54,7 @@
     position: relative;
 }
 
-.empty-cart-label , .not-logged-in-label{
+.empty-cart-label , .not-logged-in-label , .empty-order-label{
     text-align: center;
     height: 100vh;
      width:100vw;
@@ -63,7 +63,7 @@
      padding-top: 4rem;
 }
 
-.empty-cart-image{
+.empty-cart-image {
     width:300px;
 }
 
