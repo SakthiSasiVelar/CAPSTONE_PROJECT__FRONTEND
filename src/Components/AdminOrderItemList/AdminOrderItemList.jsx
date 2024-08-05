@@ -306,7 +306,7 @@ const AdminOrderItemList = () => {
             <Table
                 columns={orderColumns}
                 dataSource={newOrderItemList}
-                pagination={{ pageSize: 8 }}
+                pagination={{ pageSize: 7 }}
                 style={{ marginBottom: '16px' }}
                 key="orderItemId"
             />

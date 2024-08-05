@@ -1,22 +1,40 @@
-import React from 'react'
+import React, { lazy,Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Home from './Pages/Home'
-import TrackOrder from './Pages/TrackOrder';
-import Login from './Pages/Login';
+// import TrackOrder from './Pages/TrackOrder';
+// import Login from './Pages/Login';
 import { createBrowserRouter , RouterProvider ,Outlet } from 'react-router-dom';
-import Cart from './Pages/Cart';
-import CategoryPage from './Pages/Category.jsx'
-import BrandPage from './Pages/Brand.jsx'
+// import Cart from './Pages/Cart';
+// import CategoryPage from './Pages/Category.jsx'
+// import BrandPage from './Pages/Brand.jsx'
 import { Provider } from 'react-redux'
 import store from './Store/store.js'
-import SignUp from './Pages/SignUp.jsx'
-import ProductDetail from './Pages/ProductDetail.jsx'
-import Checkout from './Pages/Checkout.jsx'
-import TrackOrderItem from './Pages/TrackOrderItem.jsx'
-import AdminHome from './Pages/AdminHome.jsx'
+// import SignUp from './Pages/SignUp.jsx'
+// import ProductDetail from './Pages/ProductDetail.jsx'
+// import Checkout from './Pages/Checkout.jsx'
+// import TrackOrderItem from './Pages/TrackOrderItem.jsx'
+// import AdminHome from './Pages/AdminHome.jsx'
 import { ToastContainer } from 'react-toastify';
+import TrackOrderShimmer from './Components/Shimmer/TrackOrderShimmer.jsx'
+import CartShimmer from './Components/Shimmer/CartShimmer.jsx'
+import CategoryShimmer from './Components/Shimmer/CategoryShimmer.jsx'
+import CheckoutShimmer from './Components/Shimmer/CheckoutShimmer.jsx'
+import ProductDetailShimmer from './Components/Shimmer/ProductDetailShimmer.jsx'
+
+
+const TrackOrder = lazy(() => import("./Pages/TrackOrder.jsx"));
+const TrackOrderItem = lazy(()=>import('./Pages/TrackOrderItem.jsx'))
+const Cart = lazy(()=> import('./Pages/Cart.jsx'))
+const Login = lazy(()=>import('./Pages/Login.jsx'))
+const SignUp = lazy(()=>import('./Pages/SignUp.jsx'))
+const CategoryPage = lazy(()=>import('./Pages/Category.jsx'))
+const BrandPage = lazy(()=>import('./Pages/Brand.jsx'))
+const Checkout = lazy(()=>import('./Pages/Checkout.jsx'))
+const AdminHome = lazy(()=>import('./Pages/AdminHome.jsx'))
+const ProductDetail = lazy(()=>import('./Pages/ProductDetail.jsx'))
+
 
 
 
@@ -31,65 +49,121 @@ const appConfig = createBrowserRouter([
       },
       {
         path:'/trackOrder',
-        element:<TrackOrder />,
+        element:(
+          <Suspense fallback={<TrackOrderShimmer />}>
+            <TrackOrder />
+          </Suspense>
+        )
       },
       {
         path:'/login',
-        element:<Login />
+        element:(
+          <Suspense >
+            <Login />
+          </Suspense>
+        )
       },
       {
         path:'/cart',
-        element:<Cart />
+        element:(
+          <Suspense fallback={<CartShimmer />}>
+            <Cart />
+          </Suspense>
+        )
       },
       {
         path:'/category',
-        element : <CategoryPage />,
+         element:(
+          <Suspense fallback={<CategoryShimmer />}>
+            <CategoryPage />
+          </Suspense>
+        ),
         children : [
           {
             path:':categoryName',
-            element:<CategoryPage />,
+            element:(
+          <Suspense fallback={<CategoryShimmer />}>
+            <CategoryPage />
+          </Suspense>
+        ),
           }
         ]
       },
       {
         path:'/brand',
-        element:<BrandPage />,
+        element:(
+          <Suspense fallback={<CategoryShimmer />}>
+            <BrandPage />
+          </Suspense>
+        ),
         children:[
           {
             path:':brandName',
-            element:<BrandPage />
+             element:(
+          <Suspense fallback={<CategoryShimmer />}>
+            <BrandPage />
+          </Suspense>
+        ),
           }
         ]
       },
       {
         path:'/signUp',
-        element:<SignUp />
+         element:(
+          <Suspense >
+            <SignUp />
+          </Suspense>
+        )
       },
       {
         path:'/category/:categoryName/:productId',
-        element:<ProductDetail />
+        element:(
+          <Suspense fallback={<ProductDetailShimmer />}>
+            <ProductDetail />
+          </Suspense>
+        ),
       },
       {
         path:'/brand/:brandName/:productId',
-        element:<ProductDetail />
+        element:(
+          <Suspense fallback={<ProductDetailShimmer />}>
+            <ProductDetail />
+          </Suspense>
+        ),
       },
       {
         path:'/:productId',
-        element:<ProductDetail />
+        element:(
+          <Suspense fallback={<ProductDetailShimmer />}>
+            <ProductDetail />
+          </Suspense>
+        ),
       },
        {
           path:'/trackOrder/:orderItemId',
-          element:<TrackOrderItem />
+          element:(
+            <Suspense fallback={<TrackOrderShimmer />}>
+                <TrackOrderItem />
+             </Suspense>
+          )
       }
     ]
   },
   {
     path :'/checkout',
-    element:<Checkout />
+     element:(
+          <Suspense fallback={<CheckoutShimmer />}>
+            <Checkout />
+          </Suspense>
+        ),
   },
   {
     path : '/adminHome',
-    element:<AdminHome />
+     element:(
+          <Suspense >
+            <AdminHome />
+          </Suspense>
+        ),
   }
 ])
 
