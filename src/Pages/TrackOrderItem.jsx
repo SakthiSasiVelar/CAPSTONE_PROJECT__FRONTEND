@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { API_BASE_URL } from '../utils/config';
 import { formatErrorMessage , formatSuccessMessage } from '../utils/responseFormatter';
 import TrackOrderItemDetailsShimmer from '../Components/Shimmer/TrackOrderItemDetailsShimmer ';
+import { useSelector } from 'react-redux';
+import UnAuthorizedAccessImage from '../assets/Images/UnAuthorizedAccessImage.jpg'
 
 const TrackOrderItem = () =>{
     const {orderItemId} = useParams();
@@ -15,13 +17,15 @@ const TrackOrderItem = () =>{
     const [orderDetails , setOrderDetails] = useState(null);
     const [toyDetail , setToyDetail] = useState(null);
     const token = sessionStorage.getItem('token');
+    const userDetils = useSelector((store) => store.user.userDetails);
+    const [isUnAuthorizedError , setIsUnAuthorizedError] = useState(false)
 
 
     async function callGetOrderItemApi(){
         try{
-            const response = await fetch(API_BASE_URL + `orderItem/get/${orderItemId}`,{
+            const response = await fetch(API_BASE_URL + `orderItem/get/${orderItemId}/${userDetils.userId}`,{
                 method: 'GET',
-                headers: {
+                headers: { 
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
@@ -48,6 +52,8 @@ const TrackOrderItem = () =>{
                 switch(errorCode){
                     case 400:
                     return formatErrorMessage(400 ,'Please check the user id');
+                    case 403:
+                        return formatErrorMessage(403 ,'Not a valid user to get order Item');
                     case 500:
                         return formatErrorMessage(500 ,'Error in getting order item details ');
                     default:
@@ -112,7 +118,6 @@ const TrackOrderItem = () =>{
             }
             else if(result.status === 'error'){
                 const errorCode = result.statusCode;
-                console.log(result.message);
                 switch(errorCode){
                     case 400:
                     return formatErrorMessage(400 ,'Please check the user id');
@@ -184,11 +189,15 @@ const TrackOrderItem = () =>{
                     setOrderItem(result.data);
                 }
                 else{
-                     if(result.errorCode === 401 || result.errorCode === 403){
+                     if(result.errorCode === 401 ){
                         toast.error('Please login to see order items' );
                         return;
                     }
-                    toast.error('Failed to see order items')
+                    else if(result.errorCode === 403 || result.errorCode === 500){
+                        setIsUnAuthorizedError(true);
+                        return;
+                    }
+                    toast.error('Please Try Again')
                 }
             }
             catch(error){
@@ -202,6 +211,13 @@ const TrackOrderItem = () =>{
         }
 
     },[])
+
+    if(isUnAuthorizedError) return (
+        <div className="empty-order-label">
+            <div>UnAuthorized Access</div>
+            <img src={UnAuthorizedAccessImage} />
+        </div> 
+    )
  
      if(orderItem === null || orderDetails === null || toyDetail === null)return (
         <div className="track-order-item-container">
@@ -209,11 +225,11 @@ const TrackOrderItem = () =>{
         </div>
      )
 
-
     return (
         <div className="track-order-item-container">
-            <Breadcrumbs />
-            <TrackOrderItemDetails orderItemDetails = {orderItem}  orderDetails = {orderDetails} toyDetails = {toyDetail} />
+                <Breadcrumbs />
+                <TrackOrderItemDetails orderItemDetails = {orderItem}  orderDetails = {orderDetails} toyDetails = {toyDetail} />
+           
         </div>
     )
 }
