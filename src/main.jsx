@@ -3,19 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Home from './Pages/Home'
-// import TrackOrder from './Pages/TrackOrder';
-// import Login from './Pages/Login';
 import { createBrowserRouter , RouterProvider ,Outlet } from 'react-router-dom';
-// import Cart from './Pages/Cart';
-// import CategoryPage from './Pages/Category.jsx'
-// import BrandPage from './Pages/Brand.jsx'
 import { Provider } from 'react-redux'
 import store from './Store/store.js'
-// import SignUp from './Pages/SignUp.jsx'
-// import ProductDetail from './Pages/ProductDetail.jsx'
-// import Checkout from './Pages/Checkout.jsx'
-// import TrackOrderItem from './Pages/TrackOrderItem.jsx'
-// import AdminHome from './Pages/AdminHome.jsx'
 import { ToastContainer } from 'react-toastify';
 import TrackOrderShimmer from './Components/Shimmer/TrackOrderShimmer.jsx'
 import CartShimmer from './Components/Shimmer/CartShimmer.jsx'

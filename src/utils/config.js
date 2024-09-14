@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://sakthikptoystoremanagementbackend-abcce6hgeufzccax.eastus-01.azurewebsites.net/api/' 
+export const API_BASE_URL = 'http://localhost:5226/api/'
